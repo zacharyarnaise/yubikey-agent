@@ -1,6 +1,6 @@
 module filippo.io/yubikey-agent
 
-go 1.24
+go 1.23.0
 
 require (
 	github.com/go-piv/piv-go v1.11.0
