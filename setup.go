@@ -100,7 +100,7 @@ func runSetup(yk *piv.YubiKey) {
 	fmt.Println("")
 	fmt.Println("🧪 Reticulating splines...")
 
-	key := make([]byte, 24)
+	key := make([]byte, 32)
 	if _, err := rand.Read(key[:]); err != nil {
 		log.Fatal(err)
 	}
@@ -138,7 +138,7 @@ func runSetup(yk *piv.YubiKey) {
 	}
 
 	pub, err := yk.GenerateKey(key, piv.SlotAuthentication, piv.Key{
-		Algorithm:   piv.AlgorithmEC256,
+		Algorithm:   piv.AlgorithmEd25519,
 		PINPolicy:   piv.PINPolicyOnce,
 		TouchPolicy: piv.TouchPolicyAlways,
 	})
